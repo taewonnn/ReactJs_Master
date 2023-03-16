@@ -21,19 +21,36 @@ const Circle = styled(Box)`
 `
 
 
+// as 개념 => Btn의 속성은 그대로 가져가고 싶은데 button이 아니라 a태그로 가져가고 싶을 때,
+// <Btn as="a"> 해주면 속성은 Btn의 것을 가져오지만, a태그의 속성임!!!
+const Btn = styled.button`
+  color: white;
+  background-color: tomato;
+  border: 0;
+  border-radius: 15px;
+`
+
+
+// attrs({})
+// {} 안에 속성들을 미리 넣어두고 컴포넌트는 그냥 <Input>만 사용가능!!
+const Input = styled.input.attrs({required: true, minLength: 10})`
+  background-color: tomato;
+`
 
 function App() {
 
   return (
-  // <div style = { {display: "flex"} }>
-  //   <div style = { {backgroundColor: "teal", width: 100, height: 100} }></div>
-  //   <div style = { {backgroundColor: "tomato", width: 100, height: 100} }></div>
-  // </div>
 
-    <Father>
+    <Father as="header">
       <Box bgColor = "teal"/>
       <Box bgColor = "tomato"/>
       <Circle bgColor = "red"/>
+      <Btn>Login</Btn>
+      <Btn as="a" href = '/'>Login</Btn>
+      <br/>
+      <Input />
+      <Input />
+
     </Father>
 
   );
