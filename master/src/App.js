@@ -91,7 +91,7 @@ function App() {
       {/*<Input />*/}
       {/*<Input />*/}
       <AnimationBox>
-        <sapn>🐿123</sapn>
+        <span>🐿123</span>
       </AnimationBox>
 
     </Father>
