@@ -37,6 +37,11 @@ const rotationAnimation = keyframes`
   }
 `
 
+
+const Emoji = styled.span`
+  font-size: 36px;
+`
+
 const AnimationBox = styled.div`
   height: 200px;
   width: 200px;
@@ -47,9 +52,11 @@ const AnimationBox = styled.div`
   animation: ${rotationAnimation} 1s linear infinite;
   
   // span은 styledComponent가 아니지만, AnimationBox안에 있으므로 지정해줄 수 있음!!
-  span {
-    font-size: 140px;
-    color:red;
+  
+  // ${Emoji}로 하면 emoji가 div이던 p이던 span이던 상관없이 지정이 가능함!!
+  ${Emoji} {
+    font-size: 100px;
+    
     &:hover {
       font-size: 200px;
     }
@@ -91,7 +98,7 @@ function App() {
       {/*<Input />*/}
       {/*<Input />*/}
       <AnimationBox>
-        <span>🐿123</span>
+        <Emoji as = 'p'>🐿</Emoji>
       </AnimationBox>
 
     </Father>
