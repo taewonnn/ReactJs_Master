@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 
 // styledComponent의 편의성
@@ -11,13 +11,53 @@ const Father = styled.div`
 `
 
 const Box = styled.div`
-  background-color: ${(props) => props.bgColor}; 
+  background-color: ${(props) => props.bgColor};
   width: 100px;
   height: 100px;
 `
 
 const Circle = styled(Box)`
   border-radius: 50px;
+`
+
+// animation  -> import {keyframes}
+
+const rotationAnimation = keyframes`
+  0% {
+    transform: rotate(0deg);
+    border-radius: 0;
+  }
+  50% {
+    transform: rotate(360deg);
+    border-radius: 100px;
+  }
+  100% {
+    transform: rotate(0deg);
+    border-radius: 50px;
+  }
+`
+
+const AnimationBox = styled.div`
+  height: 200px;
+  width: 200px;
+  background-color: tomato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: ${rotationAnimation} 1s linear infinite;
+  
+  // span은 styledComponent가 아니지만, AnimationBox안에 있으므로 지정해줄 수 있음!!
+  span {
+    font-size: 140px;
+    color:red;
+    &:hover {
+      font-size: 200px;
+    }
+    &:active {
+      opacity: 0;
+    }
+  }
+  
 `
 
 
@@ -42,14 +82,17 @@ function App() {
   return (
 
     <Father as="header">
-      <Box bgColor = "teal"/>
-      <Box bgColor = "tomato"/>
-      <Circle bgColor = "red"/>
-      <Btn>Login</Btn>
-      <Btn as="a" href = '/'>Login</Btn>
-      <br/>
-      <Input />
-      <Input />
+      {/*<Box bgColor = "teal"/>*/}
+      {/*<Box bgColor = "tomato"/>*/}
+      {/*<Circle bgColor = "red"/>*/}
+      {/*<Btn>Login</Btn>*/}
+      {/*<Btn as="a" href = '/'>Login</Btn>*/}
+      {/*<br/>*/}
+      {/*<Input />*/}
+      {/*<Input />*/}
+      <AnimationBox>
+        <sapn>🐿123</sapn>
+      </AnimationBox>
 
     </Father>
 
